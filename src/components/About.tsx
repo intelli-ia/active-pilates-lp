@@ -24,7 +24,7 @@ const founders = [
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="relative w-full pt-8 pb-20 md:pt-12 md:pb-36 bg-[#0A0A0A]">
+    <section id="sobre" className="relative w-full pt-8 pb-20 md:pt-12 md:pb-36 bg-[#0A0A0A] border-0 -mt-px">
       <div className="container mx-auto px-6 md:px-16">
 
         {/* Cabeçalho da seção */}
