@@ -46,12 +46,9 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center max-w-2xl mx-auto mb-10 md:mb-16"
         >
-          <span className="inline-block text-[#CF9D2F] font-semibold text-sm uppercase tracking-widest mb-4">
-            Dúvidas
-          </span>
           <h2 className="font-sora font-bold text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
-            Perguntas{" "}
-            <span className="text-[#CF9D2F]">Frequentes</span>
+            Ficou com alguma{" "}
+            <span className="text-[#CF9D2F]">dúvida?</span>
           </h2>
         </motion.div>
 

@@ -46,12 +46,12 @@ function Stars() {
 
 function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
   return (
-    <div className="flex-shrink-0 w-72 sm:w-80 bg-white/8 rounded-3xl p-5 sm:p-7 border border-white/10 mx-2 sm:mx-3">
+    <div className="flex flex-col flex-shrink-0 w-72 sm:w-80 h-72 sm:h-80 bg-white/8 rounded-3xl p-5 sm:p-7 border border-white/10 mx-2 sm:mx-3">
       <Stars />
-      <blockquote className="text-white/65 text-sm leading-relaxed mb-5">
+      <blockquote className="flex-1 text-white/65 text-sm leading-relaxed overflow-hidden">
         &ldquo;{t.quote}&rdquo;
       </blockquote>
-      <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+      <div className="flex items-center gap-3 border-t border-white/10 pt-4 mt-4">
         <div className="w-8 h-8 rounded-full bg-[#CF9D2F]/20 flex items-center justify-center flex-shrink-0">
           <span className="text-[#CF9D2F] font-bold text-xs">{t.name.charAt(0)}</span>
         </div>

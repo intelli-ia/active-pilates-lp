@@ -139,10 +139,10 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.65 }}
-            className="flex items-center gap-0 divide-x divide-gray-200 border-t border-gray-100 pt-6"
+            className="flex items-center gap-0 divide-x divide-gray-200"
           >
             {[
-              { num: 20, prefix: "", suffix: "+", label: "anos de experiência" },
+              { num: 20, prefix: "+", suffix: "", label: "anos de experiência" },
               { num: 3000, prefix: "+", suffix: "", label: "profissionais formados" },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col px-5 first:pl-0">

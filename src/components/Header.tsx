@@ -53,15 +53,15 @@ export default function Header() {
     >
       <div
         style={{ WebkitBackdropFilter: "blur(14px)", backdropFilter: "blur(14px)" }}
-        className="flex items-center justify-between gap-6 bg-white/10 border border-white/20 rounded-full px-5 py-2.5 shadow-lg w-full max-w-xl transform-gpu"
+        className="flex items-center justify-between gap-6 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 shadow-lg w-full max-w-xl transform-gpu"
       >
         {/* Logo text */}
         <Link href="/" className="flex items-center flex-shrink-0">
           <Image
             src="/logo.svg"
             alt="Active Pilates"
-            width={60}
-            height={56}
+            width={44}
+            height={41}
             className={darkBg ? "invert" : ""}
           />
         </Link>
@@ -71,7 +71,7 @@ export default function Header() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 bg-[#CF9D2F] hover:bg-[#B8891A] text-black font-semibold text-sm rounded-full px-5 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(207,157,47,0.4)] active:translate-y-0.5"
+          className="flex-shrink-0 bg-[#CF9D2F] hover:bg-[#B8891A] text-black font-semibold text-xs rounded-full px-4 py-1.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(207,157,47,0.4)] active:translate-y-0.5"
         >
           Garantir minha vaga
         </Link>

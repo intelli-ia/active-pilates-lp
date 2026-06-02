@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { WA_LINK } from "@/lib/constants";
 
@@ -27,102 +27,75 @@ const audiences = [
 ];
 
 export default function ForWhomSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeCard, setActiveCard] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v < 0.25) setActiveCard(0);
-    else if (v < 0.55) setActiveCard(1);
-    else setActiveCard(2);
-  });
-
-  const item = audiences[activeCard];
-
   return (
-    <div ref={containerRef} id="para-quem" style={{ height: "500vh" }}>
-      <div className="sticky top-0 h-screen bg-white flex items-center overflow-hidden">
-        <div className="container mx-auto px-6 md:px-16">
+    <section id="para-quem" className="bg-white py-20 md:py-32">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
-            {/* Esquerda — H1 estático */}
-            <div className="lg:pl-8">
-              <div className="bg-black rounded-3xl p-7 lg:p-12">
-                <span className="text-[#CF9D2F] font-semibold text-sm uppercase tracking-widest mb-3 block">
-                  Para quem é
-                </span>
-                <h2 className="font-sora font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight mb-4">
-                  Te acompanhamos para praticar o método de Joseph Pilates com{" "}
-                  <span className="text-[#CF9D2F]">precisão e segurança.</span>
-                </h2>
-                <p className="text-white/50 text-sm md:text-base mb-8">
-                  Independente do seu nível, a Active te leva para o próximo nível no Pilates Clássico.
-                </p>
-                <CTAButton
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  label="Garantir minha vaga"
-                />
-              </div>
-            </div>
-
-            {/* Direita — Card animado + indicadores */}
-            <div className="flex items-center gap-6 lg:pl-16">
-
-              {/* Card ativo */}
-              <div className="relative h-52 flex-1 overflow-hidden">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={activeCard}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -30 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-start"
-                  >
-                    <span
-                      className="absolute -left-2 top-10 font-sora font-bold select-none pointer-events-none leading-none text-black/5"
-                      style={{ fontSize: "9rem" }}
-                    >
-                      {item.number}
-                    </span>
-                    <div className="relative z-10 pt-6 max-w-xs">
-                      <h3 className="font-sora font-bold text-xl md:text-2xl text-black leading-snug mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-black/55 text-sm md:text-base leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Indicadores verticais */}
-              <div className="flex flex-col gap-2 flex-shrink-0">
-                {audiences.map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-1 rounded-full transition-all duration-500"
-                    style={{
-                      height: i === activeCard ? "2rem" : "0.5rem",
-                      backgroundColor: i === activeCard ? "#CF9D2F" : "#D4D4D4",
-                    }}
-                  />
-                ))}
-              </div>
-
-            </div>
+      {/* Container full-width */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="bg-black mx-6 md:mx-16 rounded-3xl px-8 md:px-16 py-12 md:py-16"
+      >
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+          <div className="max-w-lg">
+            <h2 className="font-sora font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight mb-4">
+              Te acompanhamos para praticar o método de Joseph Pilates com{" "}
+              <span className="text-[#CF9D2F]">precisão e segurança.</span>
+            </h2>
+            <p className="text-white/50 text-sm md:text-base mb-8 max-w-2xl">
+              Independente do seu nível, a Active te leva para o próximo nível no Pilates Clássico.
+            </p>
+            <CTAButton
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              label="Garantir minha vaga"
+            />
           </div>
+          <div className="relative w-full md:flex-1 h-72 md:h-[420px] shrink-0 rounded-2xl overflow-hidden">
+            <Image
+              src="/IMG-20240618-WA0081.webp"
+              alt="Aula de Pilates Clássico na Active Pilates"
+              fill
+              quality={92}
+              sizes="(max-width: 768px) 100vw, 384px"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </motion.div>
 
+      {/* 3 colunas */}
+      <div className="px-6 md:px-16 mt-12 md:mt-16">
+        <h2 className="font-sora font-bold text-2xl md:text-3xl lg:text-4xl text-black text-center mb-10 md:mb-14">
+          Para quem é a <span className="text-[#CF9D2F]">Active Pilates</span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {audiences.map((item, i) => (
+            <motion.div
+              key={item.number}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+            >
+              <span className="font-sora font-bold text-5xl text-black/8 leading-none block mb-4">
+                {item.number}
+              </span>
+              <h3 className="font-sora font-bold text-lg md:text-xl text-black leading-snug mb-3">
+                {item.title}
+              </h3>
+              <div className="w-8 h-0.5 bg-[#CF9D2F] mb-3" />
+              <p className="text-black/55 text-sm md:text-base leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+
+    </section>
   );
 }

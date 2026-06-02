@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   title: "Active Pilates | Pilates Clássico em Salvador",
   description:
     "Treine no estúdio com 20 anos de excelência em Pilates Clássico na Bahia. Corpo forte, livre de dores e totalmente saudável.",
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
