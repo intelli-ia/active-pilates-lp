@@ -8,15 +8,15 @@ import { FinalCTASection } from "@/components/FinalCTA";
 import BrandSection from "@/components/Brand";
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HeroSection />
+      <TestimonialsSection />
       <AboutSection />
       <ForWhomSection />
       <JourneySection />
-      <TestimonialsSection />
       <FAQSection />
       <FinalCTASection />
       <BrandSection />
-    </main>
+    </>
   );
 }

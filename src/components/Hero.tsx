@@ -12,63 +12,46 @@ export default function HeroSection() {
       id="hero"
       className="relative w-full h-screen bg-white overflow-hidden"
     >
-      {/* Cards flutuantes sobre a hero image */}
+      {/* Imagem mobile — colada no topo */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: [0, -8, 0] }}
-        transition={{ duration: 0.8, delay: 0.6, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.6 } }}
-        className="absolute hidden lg:block z-10"
-        style={{ bottom: "18%", right: "32%" }}
-      >
-        <div className="relative w-44 h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/60">
-          <Image
-            src="/hero-card-1.webp"
-            alt="Aula de Pilates na Active Pilates"
-            fill
-            quality={92}
-            sizes="180px"
-            className="object-cover"
-          />
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ duration: 0.8, delay: 0.8, y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.8 } }}
-        className="absolute hidden lg:block z-0"
-        style={{ top: "12%", right: "16%" }}
-      >
-        <div className="relative w-44 h-32 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/60">
-          <Image
-            src="/hero-card-2.webp"
-            alt="Aula de Pilates na Active Pilates"
-            fill
-            quality={92}
-            sizes="180px"
-            className="object-cover"
-            style={{ objectPosition: "center 20%" }}
-          />
-        </div>
-      </motion.div>
-
-      {/* Imagem — colada na direita, atrás de tudo */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="absolute top-0 h-full hidden lg:block z-0 overflow-hidden"
-        style={{ left: "38%", width: "70%" }}
+        className="absolute top-0 left-0 right-0 z-0 lg:hidden"
+        style={{ height: "44%" }}
       >
         <Image
-          src="/hero-model.webp"
-          alt="Praticante de Pilates Clássico na Active Pilates"
+          src="/hero-studio.jpg"
+          alt="Aula de Pilates Clássico na Active Pilates"
           fill
           priority
           quality={95}
-          sizes="70vw"
-          className="object-cover object-left"
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "70% center" }}
         />
+      </motion.div>
+
+      {/* Imagem — altura total da hero, centralizada horizontalmente */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+        className="absolute top-0 bottom-0 z-0 hidden lg:block"
+        style={{ left: "58%", transform: "translateX(-50%)", width: "55%" }}
+      >
+        <div className="relative w-full h-full overflow-hidden">
+          <Image
+            src="/hero-studio.jpg"
+            alt="Aula de Pilates Clássico na Active Pilates"
+            fill
+            priority
+            quality={95}
+            sizes="55vw"
+            className="object-cover"
+            style={{ objectPosition: "70% center" }}
+          />
+        </div>
       </motion.div>
 
 
@@ -80,7 +63,7 @@ export default function HeroSection() {
       <div className="relative h-full flex flex-col lg:items-center lg:justify-center">
 
         {/* Conteúdo */}
-        <div className="container mx-auto px-6 md:px-32 relative z-10 pt-16 lg:pt-0 lg:-mt-20">
+        <div className="container mx-auto px-6 md:px-32 relative z-10 pt-[49vh] lg:pt-0 lg:-mt-20">
           <div className="max-w-2xl space-y-5 lg:space-y-7">
 
             {/* Logo */}
@@ -88,6 +71,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="hidden lg:block"
             >
               <Image
                 src="/logo.svg"
@@ -162,25 +146,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Imagem mobile — abaixo do conteúdo, alinhada à direita */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="lg:hidden relative flex-1 w-full overflow-hidden"
-        >
-          <div className="absolute top-0 bottom-0 right-0 w-4/5">
-            <Image
-              src="/hero-model.webp"
-              alt="Praticante de Pilates Clássico na Active Pilates"
-              fill
-              priority
-              quality={95}
-              sizes="80vw"
-              className="object-cover object-left"
-            />
-          </div>
-        </motion.div>
 
       </div>
 

@@ -66,6 +66,7 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
 
 export default function TestimonialsSection() {
   const doubled = [...testimonials, ...testimonials];
+  const doubledReversed = [...testimonials].reverse().concat([...testimonials].reverse());
 
   return (
     <section id="depoimentos" className="relative w-full py-20 md:py-36 bg-[#0A0A0A] overflow-hidden">
@@ -85,8 +86,8 @@ export default function TestimonialsSection() {
         </motion.div>
       </div>
 
-      {/* Marquee */}
-      <div className="relative flex overflow-hidden">
+      {/* Marquee — esquerda para direita */}
+      <div className="relative flex overflow-hidden mb-4">
         <motion.div
           className="flex"
           animate={{ x: ["0%", "-50%"] }}
@@ -98,7 +99,22 @@ export default function TestimonialsSection() {
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-16 mt-14 md:mt-20 flex justify-center">
+      {/* Marquee — direita para esquerda */}
+      <div className="relative flex overflow-hidden">
+        <motion.div
+          className="flex"
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+        >
+          {doubledReversed.map((t, i) => (
+            <TestimonialCard key={i} t={t} />
+          ))}
+        </motion.div>
+      </div>
+
+      <p className="text-white/40 text-xs tracking-wide text-center mt-6">São +100 avaliações no Google</p>
+
+      <div className="container mx-auto px-6 md:px-16 mt-6 flex justify-center">
         <CTAButton
           href={WA_LINK}
           target="_blank"
@@ -106,6 +122,7 @@ export default function TestimonialsSection() {
           label="Garantir minha vaga"
         />
       </div>
+
     </section>
   );
 }

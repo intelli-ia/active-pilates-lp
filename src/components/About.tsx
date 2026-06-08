@@ -20,6 +20,13 @@ const founders = [
     image: "/maira.webp",
     objectPosition: "center 70%",
   },
+  {
+    name: "Denise Moura",
+    title: "Fisioterapeuta & Coordenadora do Studio",
+    bio: "Fisioterapeuta há 18 anos e professora de Pilates há 15, Denise Moura é coordenadora do Studio Active Pilates desde 2020 e docente do curso de formação da Active Pilates Cursos. Com formações em RPG e no Método Busquet, ela une a profundidade da fisioterapia à precisão do movimento para oferecer um cuidado verdadeiramente completo ao seu corpo.",
+    image: "/denise.jpg",
+    objectPosition: "center top",
+  },
 ];
 
 export default function AboutSection() {
