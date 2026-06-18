@@ -17,8 +17,8 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="absolute top-0 left-0 right-0 z-0 lg:hidden"
-        style={{ height: "44%" }}
+        className="absolute left-0 right-0 z-0 lg:hidden"
+        style={{ top: "-6%", height: "44%" }}
       >
         <Image
           src="/hero-studio.jpg"
@@ -63,7 +63,7 @@ export default function HeroSection() {
       <div className="relative h-full flex flex-col lg:items-center lg:justify-center">
 
         {/* Conteúdo */}
-        <div className="container mx-auto px-6 md:px-32 relative z-10 pt-[49vh] lg:pt-0 lg:-mt-20">
+        <div className="container mx-auto px-6 md:px-32 relative z-10 pt-[44vh] lg:pt-0 lg:-mt-20">
           <div className="max-w-2xl space-y-5 lg:space-y-7">
 
             {/* Logo */}
